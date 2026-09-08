@@ -1,0 +1,23 @@
+[opener]
+image = [
+    { run = 'feh -F -Z "$@"', orphan = true, desc = "feh" }
+]
+media = [
+    { run = 'vlc "$@"', orphan = true, desc = "VLC" }
+]
+vscode = [
+    { run = 'code -n "$@"', orphan = true, desc = "VS Code (New Window)" }
+]
+
+[open]
+rules = [
+    # Images -> feh
+    { mime = "image/*", use = "image" },
+
+    # Video & Audio -> VLC
+    { mime = "video/*", use = "media" },
+    { mime = "audio/*", use = "media" },
+
+    # Fallback for all other files -> VS Code
+    { url = "*", use = "vscode" }
+]

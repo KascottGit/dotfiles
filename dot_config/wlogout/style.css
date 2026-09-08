@@ -1,0 +1,42 @@
+@import url("/home/kascott/.config/hypr/themes/nord-theme.css");
+
+* {
+    all: unset;
+    font-size: 22px;
+    font-weight: 800;
+    font-family: "JetBrainsMono Nerd Font";
+}
+
+window {
+    background-color:transparent;
+}
+
+/* --- [TR] DİKEY KART TASARIMI / [EN] VERTICAL CARD DESIGN --- */
+button {
+    border: 2px solid @txt2;
+    border-radius: 12px;
+
+    margin: 10px;
+    color: @txt2;
+
+    background-color: @bg0;
+    /* [TR] Dev dikey kartlar / [EN] Giant vertical cards */
+    min-height: 100px;
+    min-width: 100px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+      transition: all 0.3s ease-in-out;
+}
+
+button:focus {
+    background-color: rgba(34, 38, 46, 0.7);
+    background-size: 35%;
+}
+
+#lock     { background-image: image(url("/home/kascott/.config/wlogout/icons/lock.png")); }
+#logout   { background-image: image(url("/home/kascott/.config/wlogout/icons/logout.png")); }
+#suspend  { background-image: image(url("/home/kascott/.config/wlogout/icons/sleep.png")); }
+#shutdown { background-image: image(url("/home/kascott/.config/wlogout/icons/power.png")); }
+#reboot   { background-image: image(url("/home/kascott/.config/wlogout/icons/restart.png")); }

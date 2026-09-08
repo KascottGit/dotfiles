@@ -1,0 +1,22 @@
+/*  Background   */
+@define-color bg0 rgba(46, 52, 64, 0.2);
+/* #2e3440; */
+@define-color bg1 #3b4252;
+@define-color bg2 #434c5e;
+@define-color bg3 #4c566a;
+
+/*  Text   */
+@define-color txt0 #d8dee9;
+@define-color txt1 #e5e9f0;
+@define-color txt2 #eceff4;
+
+/*  Colors  */
+@define-color col0 #8fbcbb;
+@define-color col2 #88c0d0;
+@define-color col3 #81a1c1;
+@define-color col4 #5e81ac;
+@define-color col5 #bf616a;
+@define-color col6 #d08770;
+@define-color col7 #ebcb8b;
+@define-color col8 #a3be8c;
+@define-color col9 #b48ead;

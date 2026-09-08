@@ -1,0 +1,172 @@
+{
+    "reload_style_on_change": true,
+    "layer": "top",
+    "position": "top",
+    "height": 25,
+    "margin-left": 40,
+    "margin-right": 40,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "modules-left": [
+        "clock",
+        "battery",
+        "custom/media"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "bluetooth",
+        "power-profiles-daemon",
+        "pulseaudio",
+        "network",
+        "custom/notification",
+        "custom/power"
+    ],
+    "bluetooth": {
+        "format": "",
+        "format-connected": "  {device_alias} ",
+        "format-connected-battery": "  {device_alias} {device_battery_percentage}% ",
+        "tooltip-format": "",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias} {device_battery_percentage}%",
+        "on-click": "kitty bluetui"
+    },
+    "clock": {
+        "format": " {:%H:%M}",
+        "interval": 1,
+        "tooltip-format": "{:%Y-%m-%d}"
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip": false,
+        "format-icons": {
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": " ",
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                "",
+                ""
+            ]
+        },
+        "tooltip-format": "{volume}%",
+        "on-click": "kitty pulsemixer"
+    },
+    "network": {
+        "format": "{icon}",
+        "tooltip-format": "{ifname}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname}",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50,
+        "format-icons": {
+            "wifi": [
+                "󰤯",
+                "󰤟",
+                "󰤢",
+                "󰤥",
+                "󰤨"
+            ],
+            "ethernet": [
+                ""
+            ],
+            "disconnected": [
+                "󰯡"
+            ]
+        },
+        "on-click": "kitty nmtui"
+    },
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate",
+        "persistent-workspaces": {}
+    },
+    "battery": {
+        "bat": "BAT1",
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+        "on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
+        "on-charging-100": "notify-send -u normal 'Battery Full!'",
+        "on-discharging": "notify-send -u normal 'Power Switch'",
+        "on-charging": "notify-send -u normal 'Power Switch'",
+        "format": "{icon} {capacity}%",
+        "format-icons": {
+            "default": [
+                "󰂎",
+                "󰁺",
+                "󰁻",
+                "󰁼",
+                "󰁽",
+                "󰁾",
+                "󰁿",
+                "󰂀",
+                "󰂁",
+                "󰂂",
+                "󰁹"
+            ],
+            "charging": [
+                "󰢟",
+                "󰢜",
+                "󰂆",
+                "󰂇",
+                "󰂈",
+                "󰢝",
+                "󰂉",
+                "󰢞",
+                "󰂊",
+                "󰂋",
+                "󰂅"
+            ]
+        }
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "",
+            "none": "",
+            "dnd-notification": "",
+            "dnd-none": "",
+            "inhibited-notification": "",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    /* [TR] Güç Menüsü (Wlogout) / [EN] Power Menu (Wlogout) */
+    "custom/power": {
+        "format": "",
+        "on-click": "wlogout -b 5 -c 0 -p layer-shell",
+        "tooltip": false
+    },
+    /* [TR] Medya Oynatıcı Kontrolü / [EN] Media Player Control */
+    "custom/media": {
+        "format": " {}",
+        "max-length": 30,
+        "interval": 1,
+        "exec": "playerctl metadata --format '{{ artist }} - {{ title }}'",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "tooltip-format": "{}"
+    }
+}

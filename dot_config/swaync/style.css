@@ -1,0 +1,90 @@
+@import url("/home/kascott/.config/hypr/themes/nord-theme.css");
+
+* {
+    all: unset;
+    font-family: JetBrainsMono Nerd Propo;
+    font-size: 1rem;
+
+}
+
+.control-center {
+    background: @bg0;
+    border: 2px solid @txt2;
+    border-radius: 13px;
+    padding: 15px;
+}
+
+.widget-title {
+    font-size: 1rem;
+    color: @txt2;
+    margin-bottom: 10px;
+}
+
+.widget-title > box > button {
+    background: transparent;
+    border: 1px solid @txt2;
+    border-radius: 8px;
+    color: @txt2;
+    padding: 4px 10px;
+}
+
+.widget-title > box > button:hover {
+    background: @txt2;
+    color: @bg0;
+}
+
+.widget-dnd>switch {
+    background: none;
+    border-radius: 13px;
+    border: 2px solid @txt2;
+    min-height: 20px;
+    min-width: 40px;
+}
+
+.widget-dnd>switch:checked {
+    background: @col3;
+}
+
+.widget-dnd>switch slider {
+    background: @txt2;
+    border-radius: 13px;
+    margin: 3px;
+}
+
+/* Notifications List */
+.notification-row {
+    margin: 16px 16px 2px 0px;
+    padding: 0;
+}
+
+.notification-background {
+    background: @bg0;
+    border: 2px solid @txt2;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.notification {
+    background: transparent;
+}
+
+.summary {
+    font-weight: bold;
+    color: @color9;
+    margin-bottom: 10px;
+}
+
+.body {
+    color: @txt2;
+}
+
+.image {
+    margin: 5px 15px 5px 0px;
+    border-radius: 10px;
+}
+
+.notification-group-headers {
+    margin: 0;
+    font-weight: bold;
+    color: @txt2;
+}

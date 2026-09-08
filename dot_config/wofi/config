@@ -1,0 +1,15 @@
+search_icon=false
+stylesheet=style.css
+show=drun
+matching=fuzzy
+no_actions=true
+width=550
+height=250
+always_parse_args=true
+show_all=true
+print_command=true
+layer=overlay
+insensitive=true
+prompt=
+allow_markup=true
+allow_images=true

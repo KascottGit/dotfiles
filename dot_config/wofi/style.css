@@ -1,0 +1,68 @@
+@import url("/home/kascott/.config/hypr/themes/nord-theme.css");
+
+* {
+    all: unset;
+}
+
+/* Ana Pencere */
+window {
+    margin: 0px;
+    font-family: "JetBrains Nerd Mono";
+    color: @txt2;
+}
+
+/* Tüm İçeriği Tutan Kutu */
+#outer-box {
+    margin: 0px;
+    border: 2px solid @txt2;
+    border-radius: 12px;
+    background-color: @bg0;
+    padding: 5px;
+}
+
+/* Arama Kutusu */
+#input {
+    margin: 16px 16px 0px 16px;
+    font-size: 20px;
+}
+
+#text {
+    margin: 5px;
+    font-size: 16px;
+}
+
+#input image.left {
+    margin-right: -20px;
+    color: transparent;
+
+}
+
+#input image.right {
+    margin-left: -20px;
+    color: transparent;
+
+}
+
+#entry {
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* --- Seçme Kutucuğu ve Geçiş Efekti --- */
+#entry:selected {
+    margin-left: 10px;
+}
+
+#entry:selected #text {
+    font-weight: bold;
+    color: @col3;
+}
+
+#img {
+    margin-right: 10px;
+}
+
+/* İç Kutular */
+#inner-box {
+    padding: 5px;
+}
