@@ -52,3 +52,9 @@ hl.config({
         workspace_swipe_forever = true,
     }
 })
+
+hl.device({
+    name = "logitech-g305-1",
+    accel_profile = "flat",
+    sensitivity = 0, -- Adjust if base DPI speed is too fast/slow (-1.0 to 1.0)
+})

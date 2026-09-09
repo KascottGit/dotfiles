@@ -86,10 +86,12 @@
         "on-click": "kitty nmtui"
     },
     "hyprland/workspaces": {
-        "format": "{name}",
-        "on-click": "activate",
-        "persistent-workspaces": {}
-    },
+    "format": "{id}",
+    "all-outputs": false,
+    "persistent-workspaces": {
+        "*": [1, 2, 3, 4]
+    }
+},
     "battery": {
         "bat": "BAT1",
         "interval": 60,
