@@ -1,0 +1,4 @@
+# Start Hyprland
+if [ -z "${WAYLAND_DISPLAY}" ]; then
+    exec start-hyprland
+fi
