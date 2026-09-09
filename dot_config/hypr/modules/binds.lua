@@ -35,6 +35,7 @@ local reload_cmd = [[sh -c "
     waybar &
     swaync &
     hyprpaper &
+    hyprctl reload
 "]]
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(reload_cmd))
 

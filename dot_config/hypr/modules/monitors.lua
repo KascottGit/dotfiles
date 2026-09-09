@@ -22,7 +22,6 @@ hl.monitor({
 --- WORKSPACES ---
 ------------------
 
--- 1-4: Primary workspaces. Prefer HDMI-A-1, fall back to eDP-1.
 for i = 1, 4 do
     hl.workspace_rule({
         workspace  = tostring(i),
@@ -31,11 +30,10 @@ for i = 1, 4 do
     })
 end
 
--- 5-8: Secondary monitor workspaces. Strictly on eDP-1.
 for i = 5, 8 do
     hl.workspace_rule({
         workspace  = tostring(i),
         monitor    = "eDP-1",
-        persistent = false, -- Disappear when unplugged / empty
+        persistent = false,
     })
 end
