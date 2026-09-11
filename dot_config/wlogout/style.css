@@ -8,7 +8,7 @@
 }
 
 window {
-    background-color:transparent;
+    background-color: transparent;
 }
 
 /* --- [TR] DİKEY KART TASARIMI / [EN] VERTICAL CARD DESIGN --- */
@@ -27,7 +27,7 @@ button {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 25%;
-      transition: all 0.3s ease-in-out;
+    transition: all 0.1s ease-in-out;
 }
 
 button:focus {
@@ -35,8 +35,22 @@ button:focus {
     background-size: 35%;
 }
 
-#lock     { background-image: image(url("/home/kascott/.config/wlogout/icons/lock.png")); }
-#logout   { background-image: image(url("/home/kascott/.config/wlogout/icons/logout.png")); }
-#suspend  { background-image: image(url("/home/kascott/.config/wlogout/icons/sleep.png")); }
-#shutdown { background-image: image(url("/home/kascott/.config/wlogout/icons/power.png")); }
-#reboot   { background-image: image(url("/home/kascott/.config/wlogout/icons/restart.png")); }
+#lock {
+    background-image: image(url("/home/kascott/.config/wlogout/icons/lock.png"));
+}
+
+#logout {
+    background-image: image(url("/home/kascott/.config/wlogout/icons/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("/home/kascott/.config/wlogout/icons/sleep.png"));
+}
+
+#shutdown {
+    background-image: image(url("/home/kascott/.config/wlogout/icons/power.png"));
+}
+
+#reboot {
+    background-image: image(url("/home/kascott/.config/wlogout/icons/restart.png"));
+}

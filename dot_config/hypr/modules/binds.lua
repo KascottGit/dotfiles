@@ -6,7 +6,7 @@
 local terminal      = "kitty"
 local fileManager   = "kitty yazi"
 local menu          = "pkill wofi || wofi --show drun"
-local lock          = "pkill wlogout || wlogout -b 5 -c 0 -p layer-shell"
+local lock          = "pkill wlogout || wlogout -b 4 -c 0 -p layer-shell"
 local notifications = "swaync-client -t -sw"
 ---------------------
 ---- KEYBINDINGS ----

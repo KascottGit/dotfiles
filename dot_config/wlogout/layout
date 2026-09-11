@@ -1,29 +1,20 @@
 {
-    "label" : "lock",
-    "action" : "hyprlock",
-    "text" : "Lock",
+    "label" : "logout",
+    "action" : "loginctl kill-session $XDG_SESSION_ID",
+    "text" : "Logout",
 }
-
 {
-    "label" : "reboot",
-    "action" : "systemctl reboot",
-    "text" : "Reboot",
+    "label" : "suspend",
+    "action" : "systemctl suspend",
+    "text" : "Suspend",
 }
-
 {
     "label" : "shutdown",
     "action" : "systemctl poweroff",
     "text" : "Shutdown",
 }
-
 {
-    "label" : "logout",
-    "action" : "loginctl kill-session $XDG_SESSION_ID",
-    "text" : "Logout",
-}
-
-{
-    "label" : "suspend",
-    "action" : "systemctl suspend",
-    "text" : "Suspend",
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text" : "Reboot",
 }
