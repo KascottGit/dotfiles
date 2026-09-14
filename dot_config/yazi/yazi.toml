@@ -8,6 +8,9 @@ media = [
 vscode = [
     { run = 'code -n "$@"', orphan = true, desc = "VS Code (New Window)" }
 ]
+tdf = [
+    { run = 'echo "0=$0 | 1=$1 | @=$@" > /tmp/yazi-args.txt', orphan = true, desc = "debug" }
+]
 
 [open]
 rules = [
@@ -17,6 +20,9 @@ rules = [
     # Video & Audio -> VLC
     { mime = "video/*", use = "media" },
     { mime = "audio/*", use = "media" },
+
+    # PDF -> tdf in a new kitty window
+    { mime = "application/pdf", use = "tdf" },
 
     # Fallback for all other files -> VS Code
     { url = "*", use = "vscode" }
