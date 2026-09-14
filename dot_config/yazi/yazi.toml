@@ -1,15 +1,15 @@
 [opener]
 image = [
-    { run = 'feh -F -Z "$@"', orphan = true, desc = "feh" }
+    { run = 'feh -F -Z "%s"', orphan = true, desc = "feh" }
 ]
 media = [
-    { run = 'vlc "$@"', orphan = true, desc = "VLC" }
+    { run = 'vlc "%s"', orphan = true, desc = "VLC" }
 ]
 vscode = [
-    { run = 'code -n "$@"', orphan = true, desc = "VS Code (New Window)" }
+    { run = 'code -n "%s"', orphan = true, desc = "VS Code (New Window)" }
 ]
 tdf = [
-    { run = 'echo "0=$0 | 1=$1 | @=$@" > /tmp/yazi-args.txt', orphan = true, desc = "debug" }
+    { run = 'kitty env LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 tdf %s1', orphan = true, desc = "tdf (kitty)" }
 ]
 
 [open]
@@ -22,7 +22,7 @@ rules = [
     { mime = "audio/*", use = "media" },
 
     # PDF -> tdf in a new kitty window
-    { mime = "application/pdf", use = "tdf" },
+    { url = "*.pdf", use = "tdf" },
 
     # Fallback for all other files -> VS Code
     { url = "*", use = "vscode" }
