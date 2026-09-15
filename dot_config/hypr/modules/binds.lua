@@ -31,6 +31,7 @@ local reload_cmd = [[sh -c "
     killall waybar
     killall swaync
     killall hyprpaper
+    killall wlogout
     sleep 0.2
     waybar &
     swaync &

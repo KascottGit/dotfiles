@@ -20,9 +20,6 @@ button {
     color: @txt2;
 
     background-color: @bg0;
-    /* [TR] Dev dikey kartlar / [EN] Giant vertical cards */
-    min-height: 100px;
-    min-width: 100px;
 
     background-repeat: no-repeat;
     background-position: center;
@@ -31,8 +28,8 @@ button {
 }
 
 button:focus {
-    background-color: rgba(34, 38, 46, 0.7);
-    background-size: 35%;
+    background-size: 30%;
+    background-color: @col3;
 }
 
 #lock {
