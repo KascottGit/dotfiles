@@ -39,6 +39,7 @@ hl.window_rule({
     float = true,
 })
 
+--[[ 
 hl.layer_rule({
   match        = { namespace = "wofi" },
   blur         = true,
@@ -67,4 +68,5 @@ hl.layer_rule({
   match        = { namespace = "swaync-notification-window" },
   blur         = true,
   ignore_alpha = 0.1,
-})
+}) 
+]]
