@@ -30,6 +30,6 @@ if hl.plugin.hyprglass then
         fresnel_strength = 1,
         specular_strength = 2,
         lens_distortion = 0,
-        dark = { brightness = 0.8, contrast = 1, saturation = 1, vibrancy = 1, adaptive_dim = 0 },
+        dark = { brightness = 0.5, contrast = 1, saturation = 1, vibrancy = 1, adaptive_dim = 0 },
     })
 end
