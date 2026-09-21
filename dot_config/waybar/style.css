@@ -21,7 +21,8 @@ window#waybar {
 #custom-power,
 #pulseaudio,
 #network,
-#bluetooth {
+#bluetooth
+ {
     background-color: @bg0;
     color: @txt0;
 
