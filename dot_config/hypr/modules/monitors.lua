@@ -5,7 +5,7 @@
 -- HDMI-A-1 on the left (at origin 0x0)
 hl.monitor({
     output   = "HDMI-A-1",
-    mode     = "preferred",
+    mode     = "1920x1080@74.97Hz",
     position = "0x0",
     scale    = "1",
 })
@@ -13,7 +13,7 @@ hl.monitor({
 -- Built-in display positioned directly to the right of HDMI-A-1
 hl.monitor({
     output   = "eDP-1",
-    mode     = "preferred",
+    mode     = "1920x1080@60.02Hz",
     position = "auto-right",
     scale    = "1.2",
 })
