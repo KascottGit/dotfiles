@@ -2,4 +2,5 @@
 prepend_keymap = [
     { on = "q", run = "shell --orphan --confirm kitty", desc = "Open terminal at current dir" },
     { on = "Q", run = "shell --orphan --confirm kitty", desc = "Open terminal at current dir" },
+    { on = ["g", "m"], run = "cd /run/media/kascott",   desc = "Go to mounted drives" },
 ]
