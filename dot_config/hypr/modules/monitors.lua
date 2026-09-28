@@ -50,7 +50,7 @@ end
 local function setup_dual_monitor()
     clear_workspace_rules()
     -- Workspaces 1-4 on HDMI
-    for i = 1, 4 do
+    for i = 1, 3 do
         hl.workspace_rule({
             workspace  = tostring(i),
             monitor    = "HDMI-A-1",
@@ -58,7 +58,7 @@ local function setup_dual_monitor()
         })
     end
     -- Workspaces 5-8 on eDP-1
-    for i = 5, 8 do
+    for i = 4, 6 do
         hl.workspace_rule({
             workspace  = tostring(i),
             monitor    = "eDP-1",
