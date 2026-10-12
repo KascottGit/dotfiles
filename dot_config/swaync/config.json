@@ -11,7 +11,6 @@
     "control-center-margin-bottom": 500,
     "control-center-margin-right": 16,
     "control-center-width": 360,
-    "layer": "overlay",
     "cssPriority": "user",
     "widgets": [
         "dnd",

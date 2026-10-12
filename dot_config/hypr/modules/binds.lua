@@ -34,7 +34,7 @@ local reload_cmd = [[sh -c "
     killall wlogout
     sleep 0.2
     waybar &
-    swaync &
+    GDK_WAYLAND_DISABLE=ext_background_effect_manager_v1 swaync &
     hyprpaper &
     hyprctl reload
 "]]
