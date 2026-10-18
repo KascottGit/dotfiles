@@ -81,17 +81,24 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 hl.bind(mainMod .. " + TAB", hl.dsp.focus({ monitor = "+1" }))
 
--- Laptop multimedia keys for volume and LCD brightness
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
-    { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
-    { locked = true, repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
-    { locked = true, repeating = true })
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
-    { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
+-- Laptop multimedia keys for volume and LCD brightness (with OSD popups)
+local osd = os.getenv("HOME") .. "/.config/hypr/scripts/osd.sh"
+
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(osd .. " volume up 5"), { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(osd .. " volume down 5"), { locked = true, repeating = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd(osd .. " volume mute"), { locked = true })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(osd .. " mic mute"), { locked = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(osd .. " brightness up 5"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(osd .. " brightness down 5"), { locked = true, repeating = true })
+hl.bind("XF86KbdBrightnessUp", hl.dsp.exec_cmd(osd .. " kbd-backlight up"), { locked = true })
+hl.bind("XF86KbdBrightnessDown", hl.dsp.exec_cmd(osd .. " kbd-backlight down"), { locked = true })
+
+-- Lock key OSDs. Runs on key release (after the state flips) and doesn't
+-- swallow the key, so Caps/Num Lock still work as normal.
+hl.bind("Caps_Lock", hl.dsp.exec_cmd(osd .. " caps"),
+    { locked = true, release = true, non_consuming = true, ignore_mods = true })
+hl.bind("Num_Lock", hl.dsp.exec_cmd(osd .. " num"),
+    { locked = true, release = true, non_consuming = true, ignore_mods = true })
 
 -- Requires playerctl
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })

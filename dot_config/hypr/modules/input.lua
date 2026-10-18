@@ -22,15 +22,17 @@ hl.config({
     },
 })
 
+local osd = os.getenv("HOME") .. "/.config/hypr/scripts/osd.sh"
+
 local volume_gesture = function(change)
     local step = math.floor(math.abs(change) + 0.5)
     if step == 0 then return end
 
+    -- osd.sh caps "up" at 100% and shows the volume popup
     if change > 0 then
-        -- -l 1.0 strictly limits maximum volume to 100%
-        hl.exec_cmd(string.format("wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ %d%%+", step))
+        hl.exec_cmd(string.format("%s volume up %d", osd, step))
     else
-        hl.exec_cmd(string.format("wpctl set-volume @DEFAULT_AUDIO_SINK@ %d%%-", step))
+        hl.exec_cmd(string.format("%s volume down %d", osd, step))
     end
 end
 
