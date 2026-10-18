@@ -2,7 +2,7 @@
 
 * {
     all: unset;
-    font-family: "JetBrainsMono Nerd Font";
+    font-family: "JetBrainsMono Nerd Font Propo";
 }
 
 window {
@@ -18,11 +18,17 @@ button {
     color: @txt2;
     background-color: @bg0;
 
-    font-size: 56px;
+    font-size: 72px;
+    /* wlogout's "height" option is buggy in 1.2.2, so the icon sits at the
+       bottom ("height": 1 in layout) and this padding lifts it to the middle.
+       Raise it to move the icon up, lower it to move it down. */
+    padding-bottom: 70px;
     transition: all 0.1s ease-in-out;
 }
 
 button:focus {
-    font-size: 72px;
+    font-size: 86px;
+    padding-bottom: 70px;  /* a bit less, since the bigger icon is taller */
     border: 2px solid @txt2;
+    color: @txt2;
 }
