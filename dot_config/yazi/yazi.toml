@@ -5,25 +5,13 @@ image = [
 media = [
     { run = 'vlc "%s"', orphan = true, desc = "VLC" }
 ]
-vscode = [
-    { run = 'code -n "%s"', orphan = true, desc = "VS Code (New Window)" }
-]
-tdf = [
-    { run = 'kitty env LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 tdf %s1', orphan = true, desc = "tdf (kitty)" }
-]
 
 [open]
-rules = [
+prepend_rules = [
     # Images -> feh
     { mime = "image/*", use = "image" },
 
     # Video & Audio -> VLC
     { mime = "video/*", use = "media" },
     { mime = "audio/*", use = "media" },
-
-    # PDF -> tdf in a new kitty window
-    { url = "*.pdf", use = "tdf" },
-
-    # Fallback for all other files -> VS Code
-    { url = "*", use = "vscode" }
 ]

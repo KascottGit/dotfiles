@@ -11,7 +11,6 @@ window {
     color: @txt2;
 }
 
-/* Tüm İçeriği Tutan Kutu */
 #outer-box {
     margin: 0px;
     border: 2px solid @txt2;
@@ -20,7 +19,6 @@ window {
     padding: 5px;
 }
 
-/* Arama Kutusu */
 #input {
     margin: 16px 16px 0px 16px;
     font-size: 20px;

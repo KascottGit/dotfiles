@@ -35,31 +35,38 @@ hl.window_rule({
 })
 
 hl.layer_rule({
-  match        = { namespace = "wofi" },
-  blur         = true,
-  ignore_alpha = 0.1,
+  match         = { namespace = "wofi" },
+  blur          = true,
+  ignore_alpha  = 0.1,
+  dim_around    = true,
+  xray          = true,
 })
 
 hl.layer_rule({
-  match        = { namespace = "waybar" },
-  blur         = true,
-  ignore_alpha = 0.1,
+  match         = { namespace = "waybar" },
+  blur          = true,
+  ignore_alpha  = 0.1,
 })
 
 hl.layer_rule({
-  match        = { namespace = "logout_dialog" },
-  blur         = true,
-  ignore_alpha = 0.1,
+  match         = { namespace = "logout_dialog" },
+  blur          = true,
+  ignore_alpha  = 0.1,
+  dim_around    = true,
+  xray          = true,
 })
 
 hl.layer_rule({
-  match        = { namespace = "swaync-control-center" },
-  blur         = true,
-  ignore_alpha = 0.1,
+  match         = { namespace = "swaync-control-center" },
+  blur          = true,
+  ignore_alpha  = 0.1,
+  dim_around    = true,
+  xray          = true,
 })
 
 hl.layer_rule({
-  match        = { namespace = "swaync-notification-window" },
-  blur         = true,
-  ignore_alpha = 0.1,
+  match         = { namespace = "swaync-notification-window" },
+  blur          = true,
+  ignore_alpha  = 0.1,
+  xray          = true,
 })
