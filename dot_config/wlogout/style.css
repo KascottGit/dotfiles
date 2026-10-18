@@ -2,7 +2,6 @@
 
 * {
     all: unset;
-    font-size: 22px;
     font-family: "JetBrainsMono Nerd Font";
 }
 
@@ -10,43 +9,20 @@ window {
     background-color: transparent;
 }
 
-/* --- [TR] DİKEY KART TASARIMI / [EN] VERTICAL CARD DESIGN --- */
+/* Vertical cards: icon (Nerd Font glyph) + label come from the "text" field in layout */
 button {
     border: 2px solid @col2;
     border-radius: 12px;
+    margin: 150px 10px;  /* top/bottom, left/right — raise the first number for shorter buttons */
 
-    margin: 10px;
     color: @txt2;
-
     background-color: @bg0;
 
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 25%;
+    font-size: 56px;
     transition: all 0.1s ease-in-out;
 }
 
 button:focus {
-    background-size: 30%;
+    font-size: 72px;
     border: 2px solid @txt2;
-}
-
-#lock {
-    background-image: image(url("/home/kascott/.config/wlogout/icons/lock.png"));
-}
-
-#logout {
-    background-image: image(url("/home/kascott/.config/wlogout/icons/logout.png"));
-}
-
-#suspend {
-    background-image: image(url("/home/kascott/.config/wlogout/icons/sleep.png"));
-}
-
-#shutdown {
-    background-image: image(url("/home/kascott/.config/wlogout/icons/power.png"));
-}
-
-#reboot {
-    background-image: image(url("/home/kascott/.config/wlogout/icons/restart.png"));
 }

@@ -8,6 +8,9 @@ local fileManager   = "kitty yazi"
 local menu          = "pkill wofi || wofi --show drun"
 local lock          = "pkill wlogout || wlogout -b 4 -c 0 -p layer-shell"
 local notifications = "swaync-client -t -sw"
+
+local hyprshot_region = "hyprshot -m region"
+local hyprshort_window = "hyprshort -m window"
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
@@ -24,6 +27,11 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(notifications))
+
+-- Print Screens
+hl.bind("Print", hl.dsp.exec_cmd(hyprshot_region))
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd(hyprshort_window))
+
 
 -- Reload Waybar
 --hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(reload))
