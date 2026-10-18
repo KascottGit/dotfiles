@@ -3,70 +3,77 @@
 --------------------------------
 
 local suppressMaximizeRule = hl.window_rule({
-    -- Ignore maximize requests from all apps. You'll probably like this.
-    name           = "suppress-maximize-events",
-    match          = { class = ".*" },
+  -- Ignore maximize requests from all apps. You'll probably like this.
+  name           = "suppress-maximize-events",
+  match          = { class = ".*" },
 
-    suppress_event = "maximize",
+  suppress_event = "maximize",
 })
 -- suppressMaximizeRule:set_enabled(false)
 
 hl.window_rule({
-    -- Fix some dragging issues with XWayland
-    name     = "fix-xwayland-drags",
-    match    = {
-        class      = "^$",
-        title      = "^$",
-        xwayland   = true,
-        float      = true,
-        fullscreen = false,
-        pin        = false,
-    },
+  -- Fix some dragging issues with XWayland
+  name     = "fix-xwayland-drags",
+  match    = {
+    class      = "^$",
+    title      = "^$",
+    xwayland   = true,
+    float      = true,
+    fullscreen = false,
+    pin        = false,
+  },
 
-    no_focus = true,
+  no_focus = true,
 })
 
 hl.window_rule({
-    name  = "move-hyprland-run",
-    match = { class = "hyprland-run" },
+  name  = "move-hyprland-run",
+  match = { class = "hyprland-run" },
 
-    move  = "20 monitor_h-120",
-    float = true,
+  move  = "20 monitor_h-120",
+  float = true,
+})
+hl.window_rule({
+  name  = "filechooser",
+  match = { title = "filechooser" },
+  size  = {1200, 700},
+
+  float = true,
 })
 
 hl.layer_rule({
-  match         = { namespace = "wofi" },
-  blur          = true,
-  ignore_alpha  = 0.1,
-  dim_around    = true,
-  xray          = true,
+  match        = { namespace = "wofi" },
+  blur         = true,
+  ignore_alpha = 0.1,
+  dim_around   = true,
+  xray         = true,
 })
 
 hl.layer_rule({
-  match         = { namespace = "waybar" },
-  blur          = true,
-  ignore_alpha  = 0.1,
+  match        = { namespace = "waybar" },
+  blur         = true,
+  ignore_alpha = 0.1,
 })
 
 hl.layer_rule({
-  match         = { namespace = "logout_dialog" },
-  blur          = true,
-  ignore_alpha  = 0.1,
-  dim_around    = true,
-  xray          = true,
+  match        = { namespace = "logout_dialog" },
+  blur         = true,
+  ignore_alpha = 0.1,
+  dim_around   = true,
+  xray         = true,
 })
 
 hl.layer_rule({
-  match         = { namespace = "swaync-control-center" },
-  blur          = true,
-  ignore_alpha  = 0.1,
-  dim_around    = true,
-  xray          = true,
+  match        = { namespace = "swaync-control-center" },
+  blur         = true,
+  ignore_alpha = 0.1,
+  dim_around   = true,
+  xray         = true,
 })
 
 hl.layer_rule({
-  match         = { namespace = "swaync-notification-window" },
-  blur          = true,
-  ignore_alpha  = 0.1,
-  xray          = true,
+  match        = { namespace = "swaync-notification-window" },
+  blur         = true,
+  ignore_alpha = 0.1,
+  xray         = true,
 })

@@ -27,3 +27,6 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
 
 hl.env("EDITOR", "micro")
 hl.env("VISUAL", "micro")
+
+hl.env("GDK_DEBUG","portals")
+hl.env("GTK_USE_PORTAL","1")
