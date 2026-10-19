@@ -27,18 +27,27 @@ hl.window_rule({
 })
 
 hl.window_rule({
-  name  = "move-hyprland-run",
-  match = { class = "hyprland-run" },
+  name    = "move-hyprland-run",
+  match   = { class = "hyprland-run" },
 
-  move  = "20 monitor_h-120",
-  float = true,
+  move    = "20 monitor_h-120",
+  float   = true,
 })
-hl.window_rule({
-  name  = "filechooser",
-  match = { title = "filechooser" },
-  size  = {1200, 700},
 
-  float = true,
+hl.window_rule({
+  name    = "filechooser",
+  match   = { title = "filechooser" },
+  size    = {1200, 700},
+  center  = true,
+  float   = true,
+})
+
+hl.window_rule({
+  name    = "blender file view",
+  match   = { title = "File Browser" , class = "blender"},
+  size    = {1200, 700},
+  center  = true,
+  float   = true,
 })
 
 hl.layer_rule({
