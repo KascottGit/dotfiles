@@ -88,3 +88,11 @@
     font-weight: bold;
     color: @txt2;
 }
+/* Popups: inset 18px from the window edge (window = 16px gap + 2px border) */
+.floating-notifications {
+    padding-top: 18px;
+}
+
+.floating-notifications .notification-row {
+    margin: 18px 36px 0px 0px;
+}

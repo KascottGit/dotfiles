@@ -7,9 +7,9 @@
     "positionX": "right",
     "positionY": "top",
     "notification-width": 360,
-    "control-center-margin-top": 16,
+    "control-center-margin-top": 36,
     "control-center-margin-bottom": 500,
-    "control-center-margin-right": 16,
+    "control-center-margin-right": 36,
     "control-center-width": 360,
     "cssPriority": "user",
     "widgets": [
