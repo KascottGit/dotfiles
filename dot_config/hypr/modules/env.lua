@@ -50,4 +50,30 @@ if has_nvidia() then
     hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
     hl.env("NVD_BACKEND", "direct")              -- nvidia-vaapi-driver
     hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
+    hl.env("MOZ_DISABLE_RDD_SANDBOX", "1")
+    -- Render on NVIDIA when the external monitor (wired to the dGPU) is connected.
+    -- Otherwise the Intel iGPU renders HDMI frames and copies them across, which
+    -- stutters under load. Card numbers can change between boots, so look them up
+    -- by PCI vendor ID. Only evaluated at startup; re-login after (un)plugging.
+    local function read_line(path)
+        local f = io.open(path, "r")
+        if not f then return nil end
+        local v = f:read("*l")
+        f:close()
+        return v
+    end
+
+    local nv, intel
+    for i = 0, 3 do
+        local vendor = read_line("/sys/class/drm/card" .. i .. "/device/vendor")
+        if vendor == "0x10de" then
+            nv = i
+        elseif vendor == "0x8086" then
+            intel = i
+        end
+    end
+
+    if nv and intel and read_line("/sys/class/drm/card" .. nv .. "-HDMI-A-1/status") == "connected" then
+        hl.env("AQ_DRM_DEVICES", "/dev/dri/card" .. nv .. ":/dev/dri/card" .. intel)
+    end
 end
