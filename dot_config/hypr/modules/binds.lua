@@ -74,8 +74,27 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:mag
 -- Scroll through existing workspaces with mainMod + scroll
 -- scroll_event_delay defaults to 300ms, which drops wheel clicks that arrive faster than that
 hl.config({ binds = { scroll_event_delay = 0 } })
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+-- Clamped to the focused monitor's existing workspaces instead of wrapping around like "e+1"/"e-1"
+local function scrollWorkspace(dir)
+    return function()
+        local monitor = hl.get_active_monitor()
+        local current = hl.get_active_workspace()
+        if not monitor or not current then return end
+        local target
+        for _, ws in ipairs(hl.get_workspaces()) do
+            if not ws.special and ws.id > 0 and ws.monitor and ws.monitor.id == monitor.id then
+                if dir > 0 and ws.id > current.id and (not target or ws.id < target) then
+                    target = ws.id
+                elseif dir < 0 and ws.id < current.id and (not target or ws.id > target) then
+                    target = ws.id
+                end
+            end
+        end
+        if target then hl.dispatch(hl.dsp.focus({ workspace = target })) end
+    end
+end
+hl.bind(mainMod .. " + mouse_down", scrollWorkspace(1))
+hl.bind(mainMod .. " + mouse_up", scrollWorkspace(-1))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
