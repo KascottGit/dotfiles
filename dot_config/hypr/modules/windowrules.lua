@@ -43,8 +43,24 @@ hl.window_rule({
 })
 
 hl.window_rule({
-  name    = "blender file view",
+  name    = "blender file browser",
   match   = { title = "File Browser" , class = "blender"},
+  size    = {1200, 700},
+  center  = true,
+  float   = true,
+})
+
+hl.window_rule({
+  name    = "blender file view",
+  match   = { title = "Blender File View" , class = "blender"},
+  size    = {1200, 700},
+  center  = true,
+  float   = true,
+})
+
+hl.window_rule({
+  name    = "blender preferences",
+  match   = { title = "Preferences" , class = "blender"},
   size    = {1200, 700},
   center  = true,
   float   = true,
