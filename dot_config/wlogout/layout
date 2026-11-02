@@ -1,24 +1,20 @@
 {
     "label" : "logout",
     "action" : "loginctl kill-session $XDG_SESSION_ID",
-    "text" : "󰗽",
-    "height" : 1,
+    "text" : "",
 }
 {
     "label" : "suspend",
     "action" : "systemctl suspend",
-    "text" : "󰤄",
-    "height" : 1,
+    "text" : "",
 }
 {
     "label" : "shutdown",
     "action" : "systemctl poweroff",
-    "text" : "",
-    "height" : 1,
+    "text" : "",
 }
 {
     "label" : "reboot",
     "action" : "systemctl reboot",
-    "text" : "",
-    "height" : 1,
+    "text" : "",
 }
