@@ -28,7 +28,7 @@ button:hover {
     border: 2px solid @txt2;
 }
 
-#logout   { background-image: image(url("/home/kascott/.config/wlogout/icons/glyphs/logout.png")); }
-#suspend  { background-image: image(url("/home/kascott/.config/wlogout/icons/glyphs/suspend.png")); }
-#shutdown { background-image: image(url("/home/kascott/.config/wlogout/icons/glyphs/shutdown.png")); }
-#reboot   { background-image: image(url("/home/kascott/.config/wlogout/icons/glyphs/reboot.png")); }
+#logout   { background-image: image(url("/home/kascott/.config/wlogout/icons/logout.png")); }
+#suspend  { background-image: image(url("/home/kascott/.config/wlogout/icons/suspend.png")); }
+#shutdown { background-image: image(url("/home/kascott/.config/wlogout/icons/shutdown.png")); }
+#reboot   { background-image: image(url("/home/kascott/.config/wlogout/icons/reboot.png")); }
