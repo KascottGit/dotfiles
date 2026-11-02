@@ -56,9 +56,9 @@ hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
 
 -- Switch workspaces with mainMod + [0-9] or numpad [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
-local numpadCodes = { 87, 88, 89, 83, 84, 85, 79, 80, 81, 90 } -- KP_1 .. KP_9, KP_0
+local numpadCodes = { 87, 88, 89, 104, 83, 84, 85, 86} -- KP_1 .. KP_9, KP_0
 
-for i = 1, 10 do
+for i = 1, 8 do
     local key = i % 10 -- 10 maps to key 0
     local kp  = "code:" .. numpadCodes[i]
     hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
