@@ -6,7 +6,8 @@
 hl.config({
     general = {
         gaps_in          = 8,
-        gaps_out         = 16,
+        -- Top includes waybar's 40px: the bar doesn't reserve space itself (see waybar.lua)
+        gaps_out         = { top = 56, right = 16, bottom = 16, left = 16 },
 
         border_size      = 2,
 
@@ -45,6 +46,7 @@ hl.config({
             passes   = 2,
             brightness = 1,
             vibrancy = 0,
+            xray     = true, -- floating windows blur only the wallpaper, like swaync
         },
     },
 

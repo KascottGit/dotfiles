@@ -1,22 +1,25 @@
 {
     "reload_style_on_change": true,
-    "layer": "top",
+    "layer": "bottom",
+    /* No exclusive zone: Hyprland reserves the space instead (monitors.lua), so
+       swaync's full-screen layer can cover the bar and block clicks on it */
+    "exclusive": false,
     "position": "top",
-    "height": 25,
+    "height": 40,
     "margin-left": 40,
     "margin-right": 40,
     "passthrough": false,
     "gtk-layer-shell": true,
     "modules-left": [
         "clock",
-        "battery",
         "custom/media"
     ],
     "modules-center": [
-        "hyprland/workspaces"
+        "group/workspaces"
     ],
     "modules-right": [
         "bluetooth",
+        "battery",
         "power-profiles-daemon",
         "pulseaudio",
         "network",
@@ -31,16 +34,17 @@
         "tooltip-format-connected": "{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}",
         "tooltip-format-enumerate-connected-battery": "{device_alias} {device_battery_percentage}%",
-        "on-click": "kitty bluetui"
+        "on-click": "~/.config/waybar/scripts/popup.sh bluetui bluetui"
     },
     "clock": {
         "format": " {:%H:%M}",
         "interval": 1,
-        "tooltip-format": "{:%Y-%m-%d}"
+        "tooltip-format": "{:%Y-%m-%d}",
+        "on-click": "~/.config/waybar/scripts/popup.sh calendar ~/.config/waybar/scripts/calendar.sh"
     },
     "power-profiles-daemon": {
         "format": "{icon}",
-        "tooltip": false,
+        "tooltip-format": "{profile}",
         "format-icons": {
             "performance": "",
             "balanced": "",
@@ -59,7 +63,7 @@
             ]
         },
         "tooltip-format": "{volume}%",
-        "on-click": "kitty pulsemixer"
+        "on-click": "~/.config/waybar/scripts/popup.sh pulsemixer pulsemixer"
     },
     "network": {
         "format": "{icon}",
@@ -83,11 +87,85 @@
                 "󰯡"
             ]
         },
-        "on-click": "kitty nmtui"
+        "on-click": "~/.config/waybar/scripts/popup.sh nmtui ~/.config/waybar/scripts/nmtui.sh"
     },
-    "hyprland/workspaces": {
-        "format": "{id}",
-        "all-outputs": false
+    /* Built-in hyprland/workspaces can't switch on click with the Lua config, see scripts/workspace.sh */
+    "group/workspaces": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/ws#1",
+            "custom/ws#2",
+            "custom/ws#3",
+            "custom/ws#4",
+            "custom/ws#5",
+            "custom/ws#6",
+            "custom/ws#7",
+            "custom/ws#8"
+        ]
+    },
+    "custom/ws#1": {
+        "exec": "~/.config/waybar/scripts/workspace.sh 1",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 8,
+        "tooltip": false,
+        "on-click": "hyprctl dispatch 'hl.dsp.focus({workspace=1})'"
+    },
+    "custom/ws#2": {
+        "exec": "~/.config/waybar/scripts/workspace.sh 2",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 8,
+        "tooltip": false,
+        "on-click": "hyprctl dispatch 'hl.dsp.focus({workspace=2})'"
+    },
+    "custom/ws#3": {
+        "exec": "~/.config/waybar/scripts/workspace.sh 3",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 8,
+        "tooltip": false,
+        "on-click": "hyprctl dispatch 'hl.dsp.focus({workspace=3})'"
+    },
+    "custom/ws#4": {
+        "exec": "~/.config/waybar/scripts/workspace.sh 4",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 8,
+        "tooltip": false,
+        "on-click": "hyprctl dispatch 'hl.dsp.focus({workspace=4})'"
+    },
+    "custom/ws#5": {
+        "exec": "~/.config/waybar/scripts/workspace.sh 5",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 8,
+        "tooltip": false,
+        "on-click": "hyprctl dispatch 'hl.dsp.focus({workspace=5})'"
+    },
+    "custom/ws#6": {
+        "exec": "~/.config/waybar/scripts/workspace.sh 6",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 8,
+        "tooltip": false,
+        "on-click": "hyprctl dispatch 'hl.dsp.focus({workspace=6})'"
+    },
+    "custom/ws#7": {
+        "exec": "~/.config/waybar/scripts/workspace.sh 7",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 8,
+        "tooltip": false,
+        "on-click": "hyprctl dispatch 'hl.dsp.focus({workspace=7})'"
+    },
+    "custom/ws#8": {
+        "exec": "~/.config/waybar/scripts/workspace.sh 8",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 8,
+        "tooltip": false,
+        "on-click": "hyprctl dispatch 'hl.dsp.focus({workspace=8})'"
     },
     "battery": {
         "bat": "BAT1",
@@ -154,7 +232,7 @@
     /* [TR] Güç Menüsü (Wlogout) / [EN] Power Menu (Wlogout) */
     "custom/power": {
         "format": "",
-        "on-click": "wlogout -b 5 -c 0 -p layer-shell",
+        "on-click": "pkill wlogout || wlogout -b 4 -c 0 -p layer-shell",
         "tooltip": false
     },
     /* [TR] Medya Oynatıcı Kontrolü / [EN] Media Player Control */
@@ -163,7 +241,8 @@
         "max-length": 30,
         "interval": 1,
         "exec": "playerctl metadata --format '{{ artist }} - {{ title }}'",
-        "on-click": "playerctl play-pause",
+        "on-click": "~/.config/waybar/scripts/popup.sh media ~/.config/waybar/scripts/media.sh",
+        "on-click-middle": "playerctl play-pause",
         "on-scroll-up": "playerctl next",
         "on-scroll-down": "playerctl previous",
         "tooltip-format": "{}"
