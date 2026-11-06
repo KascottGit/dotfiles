@@ -1,17 +1,98 @@
 [opener]
 image = [
-    { run = 'feh -F -Z "%s"', orphan = true, desc = "feh" }
+    { run = 'feh -F -Z %s', orphan = true, desc = "feh" }
 ]
 media = [
-    { run = 'vlc "%s"', orphan = true, desc = "VLC" }
+    { run = 'vlc %s', orphan = true, desc = "VLC" }
+]
+code = [
+    { run = 'code %s', orphan = true, desc = "VS Code" }
+]
+blender = [
+    { run = 'blender %s1', orphan = true, desc = "Blender" }
+]
+blender-import = [
+    { run = 'blender --python "$HOME/.config/yazi/scripts/blender_import.py" -- %s', orphan = true, desc = "Import into Blender" }
+]
+krita = [
+    { run = 'krita %s', orphan = true, desc = "Krita" }
+]
+inkscape = [
+    { run = 'inkscape %s', orphan = true, desc = "Inkscape" }
+]
+firefox = [
+    { run = 'firefox %s', orphan = true, desc = "Firefox" }
+]
+audacity = [
+    { run = 'audacity %s', orphan = true, desc = "Audacity" }
+]
+godot = [
+    { run = 'godot-mono --editor --path %d1', orphan = true, desc = "Godot editor" }
+]
+pspp = [
+    { run = 'psppire %s', orphan = true, desc = "PSPP" }
+]
+usdview = [
+    { run = 'usdview %s1', orphan = true, desc = "usdview" }
+]
+materialx = [
+    { run = 'MaterialXView --material %s1',        orphan = true, desc = "MaterialX Viewer" },
+    { run = 'MaterialXGraphEditor --material %s1', orphan = true, desc = "MaterialX Graph Editor" },
+]
+android-studio = [
+    { run = 'android-studio %s1', orphan = true, desc = "Android Studio" }
+]
+prism = [
+    { run = 'prismlauncher --import %s1', orphan = true, desc = "Import into Prism Launcher" }
+]
+diff = [
+    { run = 'meld %s', orphan = true, desc = "Meld (diff selected)" }
 ]
 
 [open]
 prepend_rules = [
+    # Directories (Enter still navigates; use O / Shift+Enter to pick these)
+    { mime = "folder/*", use = ["code", "android-studio", "diff", "edit", "open", "reveal"] },
+
+    # Blender
+    { url = "*.blend",  use = ["blender", "reveal"] },
+    { url = "*.blend1", use = ["blender", "reveal"] },
+    { url = "*.{obj,stl,ply,fbx,glb,gltf,abc,dae}", use = ["blender-import", "edit", "reveal"] },
+    { url = "*.{usd,usda,usdc,usdz}", use = ["usdview", "blender-import", "reveal"] },
+    { url = "*.mtlx", use = ["materialx", "edit", "reveal"] },
+
+    # Krita
+    { url = "*.{kra,krz,ora,psd,exr}", use = ["krita", "reveal"] },
+
+    # Vector / documents
+    { url = "*.{svg,svgz}", use = ["inkscape", "firefox", "image", "edit", "reveal"] },
+    { url = "*.{ai,eps,cdr,vsd,vsdx}", use = ["inkscape", "reveal"] },
+    { mime = "application/pdf", use = ["firefox", "inkscape", "reveal"] },
+    { url = "*.{html,htm,xhtml}", use = ["firefox", "code", "edit", "reveal"] },
+
+    # Godot
+    { url = "project.godot", use = ["godot", "code", "edit", "reveal"] },
+
+    # Audacity projects
+    { url = "*.{aup3,aup}", use = ["audacity", "reveal"] },
+
+    # PSPP / SPSS data
+    { url = "*.{sav,zsav,por,sps,spv}", use = ["pspp", "reveal"] },
+
+    # VS Code workspaces
+    { url = "*.code-workspace", use = ["code", "edit", "reveal"] },
+
+    # Modrinth modpacks
+    { url = "*.mrpack", use = ["prism", "extract", "reveal"] },
+
     # Images -> feh
-    { mime = "image/*", use = "image" },
+    { mime = "image/*", use = ["image", "krita", "inkscape", "firefox", "reveal"] },
 
     # Video & Audio -> VLC
-    { mime = "video/*", use = "media" },
-    { mime = "audio/*", use = "media" },
+    { mime = "video/*", use = ["media", "reveal"] },
+    { mime = "audio/*", use = ["media", "audacity", "reveal"] },
+
+    # Text / code
+    { mime = "text/*", use = ["edit", "code", "diff", "reveal"] },
+    { mime = "application/{json,ndjson,javascript,xml,toml,yaml,x-shellscript}", use = ["edit", "code", "diff", "reveal"] },
 ]
