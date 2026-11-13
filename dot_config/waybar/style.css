@@ -78,7 +78,13 @@ window#waybar {
 #custom-notification:hover,
 #custom-media:hover,
 #custom-power:hover,
-#battery:hover {
+#battery:hover,
+/* Waybar 0.16 wraps custom modules in a box and sets :hover on that box, not
+   on the #custom-* label inside it (GTK3 doesn't pass :hover down) */
+:hover > #custom-ws,
+:hover > #custom-notification,
+:hover > #custom-media,
+:hover > #custom-power {
     background-color: @col3;
 }
 
