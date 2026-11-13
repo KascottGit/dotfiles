@@ -6,7 +6,7 @@
 local terminal      = "kitty"
 local fileManager   = "kitty yazi"
 local menu          = "pkill wofi || wofi --show drun"
-local lock          = "pkill wlogout || wlogout -b 4 -c 0 -p layer-shell"
+local lock          = "~/.config/waybar/scripts/popup.sh power ~/.config/waybar/scripts/power.sh"
 local notifications = "swaync-client -t -sw"
 
 local hyprshot_region = "hyprshot -m region"
@@ -39,7 +39,6 @@ local reload_cmd = [[sh -c "
     killall waybar
     killall swaync
     killall hyprpaper
-    killall wlogout
     sleep 0.2
     waybar &
     GDK_WAYLAND_DISABLE=ext_background_effect_manager_v1 swaync &

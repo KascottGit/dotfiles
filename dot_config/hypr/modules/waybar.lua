@@ -27,6 +27,14 @@ hl.window_rule({
   move    = "monitor_w-394 78",
 })
 
+-- Power menu under the power button, same right edge as the panels
+hl.window_rule({
+  name    = "waybar-power",
+  match   = { class = "^waybar-popup-power$" },
+  size    = {250, 160},
+  move    = "monitor_w-288 78",
+})
+
 -- Left-hand popups mirror that: 36px from the left edge, 36px under the bar
 hl.window_rule({
   name    = "waybar-calendar",

@@ -229,10 +229,10 @@
         "on-click-right": "swaync-client -d -sw",
         "escape": true
     },
-    /* [TR] Güç Menüsü (Wlogout) / [EN] Power Menu (Wlogout) */
+    /* Power menu, see scripts/power.sh */
     "custom/power": {
         "format": "",
-        "on-click": "pkill wlogout || wlogout -b 4 -c 0 -p layer-shell",
+        "on-click": "~/.config/waybar/scripts/popup.sh power ~/.config/waybar/scripts/power.sh",
         "tooltip": false
     },
     /* [TR] Medya Oynatıcı Kontrolü / [EN] Media Player Control */

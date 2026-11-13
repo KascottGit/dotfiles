@@ -21,7 +21,7 @@ $was_open && exit 0
 
 # 360px is narrow: bluetui drops its device name column above size 8
 font_size=8
-[[ $name == calendar || $name == media ]] && font_size=10
+[[ $name == calendar || $name == media || $name == power ]] && font_size=10
 
 setsid -f kitty --class "$class" \
     -o font_size="$font_size" \
