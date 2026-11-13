@@ -17,7 +17,6 @@
 # or swiping updates the same popup instead of stacking new ones.
 
 ICONS="$HOME/.config/swaync/icons"
-QOGIR="/usr/share/icons/Qogir-Light/24/panel"
 TIMEOUT=1500
 
 RUN="${XDG_RUNTIME_DIR:-/tmp}"
@@ -209,17 +208,17 @@ lock_state() {
 
 caps() {
     if [[ $(lock_state capsLock) == true ]]; then
-        notify caps "$(icon "$QOGIR/caps-lock-on.svg" input-keyboard)" "Caps Lock: On"
+        notify caps "$(icon "$ICONS/caps-lock-on.png" input-keyboard)" "Caps Lock: On"
     else
-        notify caps "$(icon "$QOGIR/caps-lock-off.svg" input-keyboard)" "Caps Lock: Off"
+        notify caps "$(icon "$ICONS/caps-lock-off.png" input-keyboard)" "Caps Lock: Off"
     fi
 }
 
 num() {
     if [[ $(lock_state numLock) == true ]]; then
-        notify num "input-keyboard" "Num Lock: On"
+        notify num "$(icon "$ICONS/num-lock-on.png" input-keyboard)" "Num Lock: On"
     else
-        notify num "input-keyboard" "Num Lock: Off"
+        notify num "$(icon "$ICONS/num-lock-off.png" input-keyboard)" "Num Lock: Off"
     fi
 }
 
