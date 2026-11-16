@@ -1,4 +1,7 @@
-# Start Hyprland
-if [ -z "${WAYLAND_DISPLAY}" ]; then
-    exec start-hyprland
+# Auto-start Hyprland on tty1 only. Every other tty (Ctrl+Alt+F2, F3, ...) gives
+# a plain shell, so a broken Hyprland can never lock you out of the machine.
+if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" = "1" ]; then
+    # No `exec`: if Hyprland fails to start or crashes, you land in this shell
+    # instead of being logged out. A clean exit (logging out) still logs out.
+    start-hyprland && exit
 fi
