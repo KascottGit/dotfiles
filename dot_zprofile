@@ -1,4 +1,4 @@
 # Start Hyprland
-if [ -z "${WAYLAND_DISPLAY}" ]; then
-    exec start-hyprland
+if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" = "1" ]; then
+    start-hyprland && exit
 fi
